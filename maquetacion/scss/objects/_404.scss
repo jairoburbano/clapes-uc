@@ -1,0 +1,61 @@
+/*------------------------------------*\
+$404
+\*------------------------------------*/
+.error404 {
+    background: url(../img/detalle-footer.svg) left top no-repeat $gray;
+    text-align: center;
+    width: 100%;
+    padding: 50px 0;
+    min-height: 100%;
+    .logo404 {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        position: relative;
+        margin-bottom: 25px;
+        @include respond-to(tablet) {
+            width: 230px;
+            height: 230px;
+            margin-bottom: 40px;
+        }
+        img {
+            max-width: 80%;
+        }
+    }
+    h1 {
+        @include font-size(40px, 40px);
+        text-transform: uppercase;
+        color: $maindark;
+        @extend .bold;
+        position: relative;
+        padding-bottom: 40px;
+        margin-bottom: 10px;
+        &::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: $maindark;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            bottom: 0;
+        }
+    }
+    .error404__text {
+        max-width: 550px;
+        margin: auto;
+        p {
+            @include font-size(16px, 24px);
+            margin-bottom: 25px;
+        }
+    }
+    .btn {
+        margin: auto;    
+    }
+}

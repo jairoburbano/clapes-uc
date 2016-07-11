@@ -1,0 +1,41 @@
+/*------------------------------------*\
+$SETTINGS
+\*------------------------------------*/
+
+/* ============== // Transition // ============== */
+
+$transition-time: .3s;
+$transition-method: ease-in-out;
+
+
+/* ============== // FONTS // ============== */
+.light {
+    font-weight: 300;
+}
+.regular {
+    font-weight: normal;
+}
+.medium {
+    font-weight: 500;
+}
+.bold {
+    font-weight: 700;
+}
+.black {
+    font-weight: 900;
+}
+/* ============== // COLORS // ============== */
+$principal: #333;
+$main : #3278e6;
+$maindark : #265aad;
+$secundario : #f35929;
+$gray : #f7f6f2;
+$darkgray : #dcdcda;
+$border : #b9b9b6;
+
+$redes : (
+    c-facebook : #39579a,
+    c-twitter : #4baaf4,
+    c-instagram : #00487a,
+    c-flickr : #fff
+);

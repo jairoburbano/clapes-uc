@@ -1,0 +1,156 @@
+/*------------------------------------*\
+$FORM
+\*------------------------------------*/
+.result {
+    .result__content {
+        max-width: 650px;
+        margin: auto;
+    }
+    .item__last {
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+    .item__last__date {
+        margin-bottom: 0;
+    }
+}
+input {
+    &:focus {
+        outline: none;
+    }
+}
+.send-group {
+    input {
+        border: none;
+    }
+}
+.inscribete {
+    position: relative;
+    .sub-title {
+        margin: 30px 0 10px;
+        @include respond-to(tablet) {
+            margin: 25px 0;
+        }
+        @include respond-to(desktop) {
+            margin: 30px 0;
+        }
+    }
+    .inscribete__form {
+        background: $gray;
+        padding: 30px 10px 40px;
+        width: calc(100% + 14px);
+        margin-left: -7px;
+        @include respond-to(tablet) {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}
+.contact {
+    width: calc(100% + 14px);
+    margin-left: -7px;
+    margin-bottom: 40px;
+    position: relative;
+    @include respond-to(tablet) {
+        width: 100%;
+        margin-left: 0;
+    }
+    .block--flex {
+        max-width: 890px;
+        margin: auto;
+    }
+}
+.message {
+    width: 100%;
+    background: $main;
+    padding: 20px;
+    margin-top: 20px;
+    p {
+        @include font-size(21px, 24px);
+        text-align: center;
+        color: white;
+        margin-bottom: 0;
+    }
+}
+.formulario {
+    padding: 30px 10px 40px;
+    background: $gray;
+    .input-group {
+        width: 100%;
+        position: relative;
+        max-width: 550px;
+        margin: 0 auto 25px;
+        &.error {
+            input, textarea {
+                border-color: #991264;
+                &:focus {
+                    border-color: #991264;
+                }
+                &::-webkit-input-placeholder {
+                    color:    #991264;
+                }
+                &:-moz-placeholder {
+                    color:    #991264;
+                }
+                &::-moz-placeholder {
+                    color:    #991264;
+                }
+                &:-ms-input-placeholder {
+                    color:    #991264;
+                }
+                &:placeholder-shown {
+                    color:    #991264;
+                }
+            }
+            p.error {
+                opacity: 1;
+            }
+        }
+        label {
+            @include font-size(16px, 24px);
+            @extend .light;
+            color: $main;
+            display: block;
+        }
+        input, textarea {
+            border-radius: 6px;
+            border: 1px solid $border;
+            width: 100%;
+            height: 50px;
+            @include font-size(16px, 48px);
+            outline: none;
+            padding: 0 15px;
+            transition: all 300ms;
+            @extend .light;
+            &:focus {
+                border-color: $main;
+            }
+        }
+        textarea {
+            @include font-size(16px, 20px);
+            height: 160px;
+            padding: 10px;
+            resize: none;
+        }
+        p.error {
+            opacity: 0;
+            position: absolute;
+            bottom: -24px;
+            @include font-size(14px, 24px);
+            color: #991264;
+            width: 100%;
+            text-align: right;
+            margin-bottom: 0;
+        }
+    }
+    .send-group {
+        width: 100%;
+        max-width: 550px;
+        margin: auto;
+        input {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
+}

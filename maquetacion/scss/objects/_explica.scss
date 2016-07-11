@@ -1,0 +1,151 @@
+/*------------------------------------*\
+$EXPLICA
+\*------------------------------------*/
+.explica__content {
+    margin-bottom: 50px;
+    @include respond-to(desktop) {
+        overflow: hidden;
+    }
+    img {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 20px;
+        display: block;
+        height: auto;
+        @include respond-to(desktop) {
+            float: left;
+        }
+    }
+    .explica__content__text {
+        @include respond-to(desktop) {
+            width: calc(100% - 500px);
+            padding-left: 20px;
+            height: auto;
+            float: right;
+        }
+    }
+}
+.explica__accordeon {
+    padding-bottom: 40px;
+    .explica__item {
+        &.active {
+            .explica__title {
+                .icon--more {
+                    display: none;
+                }
+                .icon--less {
+                    display: block;
+                }
+            }
+        }
+        .explica__title {
+            position: relative;
+            justify-content: space-between;
+            width: 100%;
+            border-bottom: 1px solid $gray;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding-right: 40px;
+            @include respond-to(tablet) {
+                padding: 0 20px 5px;
+            }
+            svg {
+                width: 24px;
+                height: 24px;
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                @include respond-to(tablet) {
+                    right: 20px;
+                }
+            }
+            .icon--more {
+                display: block;
+            }
+            .icon--less {
+                display: none;
+            }
+        }
+        .explica__text {
+            display: none;
+            padding-bottom: 40px;
+            @include respond-to(tablet) {
+                padding: 0 20px;
+            }
+            p {
+                margin-bottom: 20px;
+                @include font-size(16px, 28px);
+            }
+            .table--special {
+                width: calc(100% + 30px);
+                margin-left: -15px;
+                @include respond-to(tablet) {
+                    margin-left: 0;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+                .column {
+                    width: 100%;
+                    @include respond-to(tablet) {
+                        width: (100% / 3);
+                    }
+                    p {
+                        margin-bottom: 0;
+                        @include font-size(14px, 18px);
+                    }
+                }
+                .column--title {
+                    display: none;
+                    @include respond-to(tablet) {
+                        display: block;
+                    }
+                    p {
+                        @extend .bold;
+                    }
+                }
+                .column__title {
+                    padding: 0 15px;
+                    @include respond-to(tablet) {
+                        height: 40px;
+                    }
+                    p {
+                        @extend .bold;
+                        color: $main;
+                    }
+                }
+                .column__row {
+                    padding: 20px 15px;
+                    &:nth-of-type(2n) {
+                        background: $gray;
+                    }
+                    @include respond-to(tablet) {
+                        &.row-1 {
+                            height: 90px;
+                        }
+                        &.row-2 {
+                            height: 80px;
+                        }
+                        &.row-3 {
+                            height: 90px;
+                        }
+                        &.row-4 {
+                            height: 90px;
+                        }
+                        &.row-5 {
+                            height: 80px;
+                        }
+                    }
+                    p {
+                        @extend .light;
+                        &.title__row {
+                            @extend .bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,315 @@
+/*------------------------------------*\
+$AGENDA
+\*------------------------------------*/
+.agenda {
+    .block--flex {
+        .bajada {
+            @include respond-to(desktop) {
+                width: 350px;
+                padding-right: 20px;
+            }
+        }    
+        .agenda__anterior__container {
+            @include respond-to(desktop) {
+                width: calc(100% - 350px);
+                padding-left: 15px;
+            }
+        }
+    }
+    .btn--big {
+        margin-top: 10px;
+    }
+}
+.agenda__container.especial {
+    .agenda__mes__text {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+    .contenedor_par .agenda__item {
+        padding-bottom: 120px;
+    }
+}
+.agenda__year {
+    height: 45px;
+    border: 2px solid $gray;
+    @include font-size(30px, 45px);
+    color: $main;
+    @extend .light;
+    position: relative;
+    background: white;
+    z-index: 2;
+    text-align: center;
+    display: table;
+    padding: 0 15px;
+    span.none {
+        text-transform: uppercase;
+        color: $border;
+        font-size: cr(16px) !important;
+        line-height: cr(45px) !important;
+    }
+    @include respond-to(tablet) {
+        margin: auto;
+    }
+    .agenda--right {
+        width: 50%;
+        text-align: left;
+    }
+    span {
+        display: block;
+        @include font-size(12px, 10px);
+        color: $border;
+        @extend .regular;
+        text-transform: uppercase;
+        &:first-of-type {
+            @include font-size(14px, 10px);
+            margin-top: 5px;
+        }
+    }
+}
+.agenda__mes__text {
+    padding-bottom: 40px;
+    padding-top: 10px;
+    position: relative;
+    z-index: 2;
+    padding-left: 15px;
+    @include respond-to(tablet) {
+        margin: auto;
+        text-align: center;
+        padding-left: 0;
+    }
+    span {
+        @incldue font-size(20px, 28px);
+        text-transform: uppercase;
+        color: $darkgray;
+        @extend .bold;
+        @include respond-to(tablet) {
+            background: white;
+        }
+    }
+}
+.agenda__container {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translate(-50%, 0);
+        width: 10px;
+        height: 10px;
+        background: $main;
+        border: 1px solid $main;
+        border-radius: 5px;
+        z-index: 2;
+        @include respond-to(tablet) {
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+    &::after {
+        content: '';
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        background: $gray;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        @include respond-to(tablet) {
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+    .contenedor_par {
+        .agenda__item {
+            @include respond-to(tablet) {
+                border-bottom: none;
+                &:nth-child(2n) {
+                    flex-flow: row-reverse wrap;
+                    padding-right: calc(50% + 20px);
+                    .agenda__text {
+                        text-align: right;
+                        padding-left: 0;
+                        padding-right: 10px;
+                        .btn {
+                            margin-left: auto;
+                            margin-right: 0;
+                        }
+                    }
+                }
+                &:nth-child(2n + 1) {
+                    padding-left: calc(50% + 20px);
+                }
+            }
+        }
+    }
+    .contenedor_impar {
+        .agenda__item {
+            @include respond-to(tablet) {
+                border-bottom: none;
+                flex-flow: row-reverse wrap;
+                padding-right: calc(50% + 20px);
+                .agenda__text {
+                    text-align: right;
+                    padding-left: 0;
+                    padding-right: 10px;
+                    .btn {
+                        margin-left: auto;
+                        margin-right: 0;
+                    }
+                }
+                &:nth-child(2n) {
+                    padding-left: calc(50% + 20px);
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .agenda__item {
+        display: flex;
+        flex-flow: row wrap;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-left: 20px;
+        &:hover {
+            &::after {
+                background: $main;
+                border-color: $main;
+            }
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 31px;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border: 1px solid $border;
+            border-radius: 5px;
+            z-index: 2;
+            transition: all 300ms;
+            @include respond-to(tablet) {
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+        &.agenda--none {
+            .agenda__text {
+                width: 300px;
+                border: 1px solid $darkgray;
+                color: $border;
+                padding: 10px;
+                a {
+                    color: $border;
+                    font-weight: bold;
+                }
+            }
+        }
+        .agenda__date {
+            width: 62px;
+            height: 72px;
+            border: 1px solid $main;
+            @include font-size(30px, 30px);
+            text-align: center;
+            color: $main;
+            padding: 5px;
+            @extend .light;
+            span {
+                display: block;
+                @include font-size(12px, 10px);
+                color: $border;
+                @extend .regular;
+                &:first-of-type {
+                    text-transform: uppercase;
+                    @include font-size(14px, 10px);
+                    margin-top: 5px;
+                }
+            }
+        }
+        .agenda__text {
+            width: calc(100% - 62px);
+            padding-left: 10px;
+            strong {
+                @include font-size(14px, 10px);
+            }
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+.agenda__anteriores {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+    &::after {
+        content: '';
+        height: 2px;
+        width: 100%;
+        @include center;
+        z-index: 1;
+        background: $gray;
+    }
+    .btn {
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        width: 200px;
+        @include respond-to(tablet) {
+            margin-left: 0;
+        }
+        @include respond-to(desktop) {
+            margin-left: 20px;
+        }
+    }
+}
+.agenda__anterior__container {
+    .agenda__item {
+        display: flex;
+        flex-flow: row wrap;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        border-bottom: 2px solid $gray;
+        .agenda__date {
+            width: 62px;
+            height: 72px;
+            border: 1px solid $main;
+            @include font-size(30px, 30px);
+            text-align: center;
+            color: $main;
+            padding: 5px;
+            @extend .light;
+            span {
+                display: block;
+                @include font-size(12px, 10px);
+                color: $border;
+                @extend .regular;
+                &:first-of-type {
+                    text-transform: uppercase;
+                    @include font-size(14px, 10px);
+                    margin-top: 5px;
+                }
+            }
+        }
+        .agenda__text {
+            width: calc(100% - 62px);
+            padding-left: 10px;
+            strong {
+                @include font-size(14px, 10px);
+            }
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+.paginador--eventos {
+    justify-content: center;
+    @include respond-to(tablet) {
+        justify-content: flex-end;
+    }
+}

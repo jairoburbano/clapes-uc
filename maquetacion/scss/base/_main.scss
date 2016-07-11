@@ -1,0 +1,202 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    @extend .regular;
+}
+.page-explica {
+    .explica {
+        display: none;
+    }
+    .page-wrap {
+        min-height: 100%;
+        margin-bottom: -250px;/* equal to Footer height */
+        @include respond-to(tablet) {
+            margin-bottom: -100px;/* equal to Footer height */
+        }
+        @include respond-to(desktop) {
+            margin-bottom: -100px;/* equal to Footer height */
+        }
+        &::after {
+            content: "";
+            display: block;
+        }
+    }
+    .footer, .page-wrap::after {
+        height: 250px;
+        @include respond-to(tablet) {
+            height: 100px;
+        }
+        @include respond-to(desktop) {
+            height: 100px;
+        }
+    }
+}
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -310px;/* equal to Footer height */
+    @include respond-to(tablet) {
+        margin-bottom: -230px;/* equal to Footer height */
+    }
+    @include respond-to(desktop) {
+        margin-bottom: -160px;/* equal to Footer height */
+    }
+    &::after {
+        content: "";
+        display: block;
+    }
+}
+.footer, .page-wrap::after {
+    height: 310px;
+    @include respond-to(tablet) {
+        height: 240px;
+    }
+    @include respond-to(desktop) {
+        height: 160px;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    @extend .light;
+}
+.single {
+    .title {
+        @include font-size(18px, 28px);
+        @include less-than(tablet) {
+            padding: 20px 0;
+            &:before {
+                top: 36px;
+            }
+        }
+        @include respond-to(tablet) {
+            @include font-size(24px, 28px);
+        }
+    }
+    .sub-title {
+        @include respond-to(tablet) {
+            @include font-size(36px, 40px);
+        }
+    }
+}
+h1.title {
+    @include font-size(30px, 33px);
+    color: $main;
+    position: relative;
+    padding: 30px 0 30px;
+    @include respond-to(desktop) {
+        span {
+            margin-left: 30px;
+            padding-left: 5px;
+        }
+    }
+    &:before {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $gray;
+        position: absolute;
+        left: 0;
+        top: 46px;
+        z-index: 1;
+    }
+    span {
+        background: white;
+        position: relative;
+        z-index: 2;
+        padding-right: 10px;
+    }
+}
+h2.sub-title, .h2.sub-title a {
+    @include font-size(21px, 24px);
+    color: $main;
+}
+a {
+    transition: all 300ms;
+    padding: 0;
+    color: $main;
+}
+svg {
+    width: 100%;
+    height: 100%;
+    transition: all 300ms;
+    fill: white;
+}
+img {
+    max-width: 100%;
+}
+p {
+    @include font-size(16px, 20px);
+    @extend .light;
+    &.small {
+        @include font-size(14px, 20px);
+    }
+}
+strong {
+    @extend .bold;
+    font-weight: normal;
+}
+.content-text {
+    p {
+        @include font-size(16px, 24px);
+        &.small {
+            @include font-size(14px, 20px);
+        }
+    }
+}
+.content, .contenido {
+    iframe {
+        width: 100%;
+        @include less-than(tablet) {
+            height: auto;
+        }
+    }
+    p {
+        @include font-size(16px, 24px);
+        &.small {
+            @include font-size(14px, 20px);
+        }
+    }
+    ul, ol {
+        @include font-size(16px, 28px);
+        @extend .light;
+        padding: 5px 0 0 20px;
+        ol {
+            list-style: decimal;
+        }
+
+        ul {
+            list-style: square;
+        }
+    }
+    ul {
+        list-style: square;
+    }
+    ol {
+        list-style: decimal;
+    }
+    .slides {
+        list-style: none;
+        padding: 0;
+    }
+}
+.video-block {
+    @include aspect-ratio(16, 9);
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

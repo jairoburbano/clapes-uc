@@ -1,0 +1,608 @@
+/*------------------------------------*\
+$INDEX
+\*------------------------------------*/
+.no-touch {
+    .news {
+        .news__item {
+            &:hover {
+                .news__item__content {
+                    height: 100% !important;
+                    bottom: 0;
+                }
+            }
+            .news__item__content {
+                transition: all 300ms;
+            }
+        }
+    }
+}
+.destacado {
+    background: $gray;
+    padding-bottom: 15px;
+    @include respond-to(tablet) {
+        padding-bottom: 0;
+    }
+    .wrap {
+        @include respond-to(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 0;
+        }
+        @include respond-to(desktop) {
+            background: white;
+        }
+    }
+    .destacado__media {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        display: block;
+        margin-bottom: 15px;
+        @include respond-to(tablet) {
+            margin-left: 0;
+            width: 66.6666%;
+            margin-bottom: 0;
+        }
+        @include respond-to(desktop) {
+            margin-left: 0;
+            width: 776px;
+            margin-bottom: 0;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .destacado__content__text {
+        @include respond-to(tablet) {
+            padding: 15px 20px 0;
+            flex: 1;
+        }
+    }
+    .destacado__content {
+        display: block;
+        @include respond-to(tablet) {
+            display: none;
+        }
+        @include respond-to(desktop) {
+            display: block;
+        }
+    }
+    .destacado__title {
+        margin-bottom: 15px;
+    }
+    .btn {
+        margin: 15px auto 0;
+        @include respond-to(tablet) {
+            margin: 15px 0 0;
+        }
+    }
+}
+.news {
+    padding-bottom: 20px;
+    .block--flex {
+        @include respond-to(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+    }
+    .news__item {
+        margin-bottom: 20px;
+        &.aspect {
+            @include less-than(tablet) {
+                @include aspect-ratio(1,1);
+            }
+            @include respond-to(desktop) {
+                @include aspect-ratio(1,1);
+            }
+        }
+        @include respond-to(tablet) {
+            width: calc(33.33333% - 12px);
+        }
+        .listado--top {
+            @include font-size(14px, 24px);
+            @extend .light;
+        }
+        .news__item__media {
+            width: 100%;
+            height: 100%;
+            @include respond-to(tablet) {
+                max-height: 180px;
+                overflow: hidden;
+            }
+            @include respond-to(desktop) {
+                max-height: 100%;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .news__item__content {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba($gray, .9);
+            padding: 15px 20px;
+            @include respond-to(tablet) {
+                position: relative;
+                left: auto;
+                bottom: auto;
+            }
+            @include respond-to(desktop) {
+                position: absolute;
+                left: 0;
+                bottom: 20px;
+            }
+            h2 {
+                margin-bottom: 10px;
+            }
+            .news__item__text{
+                display: none;
+            }
+            .btn {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+.block--flex {
+    @include respond-to(desktop) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+.block--half {
+    @include respond-to(desktop) {
+        width: calc(50% - 12px);
+    }
+}
+.item--wide--center {
+    @include respond-to(tablet) {
+        max-width: 560px;
+        margin: auto;
+    }
+    @include respond-to(desktop) {
+        max-width: 100%;
+    }
+}
+.item--wide {
+    background: $gray;
+    @include respond-to(tablet) {
+        position: relative;
+    }
+    @include respond-to(desktop) {
+        @include aspect-ratio(16,9);
+        overflow: hidden;
+    }
+    .item--wide__media {
+        img {
+            width: 100%;
+        }
+    }
+    .item--wide__content {
+        padding: 15px;
+        @include respond-to(tablet) {
+            position: absolute;
+            right: 0;
+            width: 50%;
+            bottom: 20px;
+            background: rgba($gray, .9);
+        }
+        @include respond-to(desktop) {
+            width: 360px;
+        }
+        .item--wide__title {
+            margin-bottom: 15px;
+        }
+    }
+}
+.js-video {
+    .flex-direction-nav {
+        display: none;
+    }
+}
+.slider {
+    background: $maindark;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    @include respond-to(tablet) {
+        padding: 0 0 0 15px;
+    }
+    .wrap {
+        padding: 0;
+        @include respond-to(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    }
+    .js-slider {
+        @include respond-to(tablet) {
+            width: 66%;
+            margin: auto;
+        }
+    }
+    .slides {
+        position: relative;
+        overflow: hidden;
+        @include respond-to(tablet) {
+            display: flex;
+            align-items: center;
+        }
+        .slide__item {
+            width: 100%;
+            @include respond-to(tablet) {
+                margin: 0;
+                position: relative;
+            }
+            .slide__item__media {
+            }
+            img {
+                display: block;
+                width: 100%;
+                max-width: 752px;
+            }
+            p.info__title {
+                max-width: 200px;
+                margin: auto;
+                text-align: center;
+                color: white;
+                padding: 35px 0;
+                @include respond-to(tablet) {
+                    display: none;
+                }
+            }
+            iframe {
+                width: 100%;
+                height: 200px;
+                @include respond-to(tablet) {
+                    height: 300px;
+                }
+            }
+        }
+    }
+    .flex-control-nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        position: absolute;
+        bottom: 180px;
+        left: 0;
+        width: 100%;
+        @include respond-to(tablet) {
+            display: none;
+        }
+        li {
+            width: 5px;
+            height: 5px;
+            margin: 0 2.5px;
+            a {
+                background: white;
+                opacity: .5;
+                transition: all 300ms;
+                text-indent: 99999em;
+                display: block;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                &.flex-active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .flex-nav-prev, .flex-nav-next {
+        position: absolute;
+        bottom: 146px;
+        left: 20px;
+        width: 7px;
+        height: 14px;
+        @include respond-to(tablet) {
+            display: none;
+        }
+    }
+    .flex-nav-next {
+        left: auto;
+        right: 20px;
+    }
+    .slide--box {
+        @include respond-to(tablet) {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            width: 32%;
+            padding-bottom: 60px;
+            margin-left: 2%;
+        }
+        @include respond-to(desktop) {
+            padding-bottom: 170px;
+            min-height: 480px;
+        }
+        .slide__control {
+            @include less-than(tablet) {
+                position: absolute;
+                right: -90%;
+                top: 45px;
+                width: 100%;
+                padding: 0 0 0 15px;
+                width: 80%;
+                transition: all 300ms;
+                &.open {
+                    right: 0;
+                }
+            }
+            @include respond-to(tablet) {
+                display: block;
+            }
+            .slide__item {
+                display: block;
+                background: white;
+                margin: 0;
+                position: relative;
+                cursor: pointer;
+                border-bottom: 2px solid $border;
+                &.flex-active {
+                    background: $main;
+                    color: white;
+                    border-bottom: 2px solid $main;
+                }
+                p {
+                    padding: 5px 15px;
+                    @include respond-to(tablet) {
+                        padding: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .btn {
+        @include respond-to(tablet) {
+            position: relative;
+            bottom: -50px;
+        }
+        @include respond-to(desktop) {
+            position: absolute;
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+}
+.block--flex--tab {
+    @include respond-to(tablet) {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+.columnas {
+    @include respond-to(tablet) {
+        width: 50%;
+    }
+    .btn--big {
+        @include respond-to(tablet) {
+            margin: 0 0 0 auto;
+        }
+    }
+}
+.item__simple {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 15px 0px;
+    border-bottom: 2px solid $gray;
+    @include respond-to(tablet) {
+        padding-left: 0;
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+    &:last-of-type {
+        margin-bottom: 15px;
+    }
+    .item__simple__media {
+        width: 20%;
+        overflow: hidden;
+        @include aspect-ratio(1,1);
+        @include respond-to(tablet) {
+            width: 98px;
+        }
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    .item__simple__content {
+        width: 80%;
+        padding-left: 10px;
+        @include respond-to(tablet) {
+            width: calc(100% - 98px);
+        }
+        .item__simple__title {
+            margin-bottom: 25px;
+            @include respond-to(tablet) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+.publicaciones {
+    @include respond-to(tablet) {
+        padding-left: 35px;
+        width: 50%;
+    }
+    .btn--big {
+        @include respond-to(tablet) {
+            margin: 0 0 30px auto;
+        }
+    }
+}
+.item__last {
+    padding: 15px 0;
+    border-bottom: 2px solid $gray;
+    @include respond-to(tablet) {
+        padding-left: 15px;
+    }
+    &:last-of-type {
+        margin-bottom: 15px;
+    }
+    .item__last__date {
+        @extend .light;
+        @include font-size(14px, 18px);
+        margin-bottom: 10px;
+        @include respond-to(tablet) {
+            margin-bottom: 0;
+        }
+    }
+    .item__last__title {
+        margin-bottom: 15px;
+        @include font-size(21px, 24px);
+        color: $main;
+        display: block;
+        @extend .light;
+    }
+}
+.js-video {
+    @include respond-to(tablet) {
+        margin: auto;
+        width: 66%;
+    }
+    .slide__item {
+        @include respond-to(desktop) {
+            padding: 30px 0;
+        }
+        .share {
+            @include respond-to(desktop) {
+                top: 0px;
+            }
+        }
+    }
+}
+.more-videos {
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 10px;
+    @include respond-to(tablet) {
+        display: none;
+    }
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+.slide__item {
+    display: none;
+    margin-bottom: 15px;
+    &:first-child {
+        display: block;
+    }
+    .slide__item__media {
+        @include respond-to(tablet) {
+            margin-top: 20px;
+        }
+        @include respond-to(desktop) {
+            padding-left: 30px;
+        }
+    }
+    .share {
+        height: 25px;
+        color: $border;
+        margin-top: 10px;
+        @include respond-to(tablet) {
+            margin-bottom: 20px;
+        }
+        @include respond-to(desktop) {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            margin-top: 0;
+        }
+        .share-group {
+            display: flex;
+            flex-flow: row wrap;
+            @include respond-to(desktop) {
+                flex-flow: column wrap;
+            }
+            a {
+                margin: 0 10px 0 0;
+                @include respond-to(desktop) {
+                    margin: 0 0 10px 0;
+                }
+            }
+        }
+        @include respond-to(tablet) {
+            display: block;
+        }
+    }
+    .slide__item__video {
+        // @include aspect-ratio(16,9);
+        position: relative;
+        @include respond-to(desktop) {
+            padding-left: 30px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.slide__item__video__frame {
+    cursor: pointer;
+    position: relative;
+    img {
+        max-width: 100%;
+    }
+    .icon {
+        @include center;
+        width: 80px;
+        height: 80px;
+        svg {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
+.block--special {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    max-width: 100%;
+    .small--block {
+        @include respond-to(tablet) {
+            width: calc(33.333% - 12px);
+        }
+    }
+    .large--block {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        @include respond-to(tablet) {
+            width: calc(66.666% - 12px);
+        }
+        .title {
+            width: 100%;
+        }
+        .item--wide {
+            margin-bottom: 15px;
+            @include respond-to(tablet) {
+                margin-bottom: 0;
+                width: calc(50% - 12px);
+            }
+        }
+    }
+    .item--wide__content {
+        width: 100%;
+        @include less-than(desktop) {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+        }
+    }
+}

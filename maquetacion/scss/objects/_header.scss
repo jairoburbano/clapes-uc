@@ -1,0 +1,297 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.no-touch {
+    .header {
+        .menu--bottom {
+            .menu__nav {
+                .menu__nav__item {
+                    a {
+                        transition: all 300ms;
+                        &:hover, &.current-menu-item, &.current-page-ancestor {
+                            background: $principal;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.header {
+    @include respond-to(desktop) {
+        height: 196px;
+    }
+    .menu--site {
+        display: none;
+        background: $gray;
+        z-index: $level11;
+        @include respond-to(desktop) {
+            display: block;
+            width: 100%;
+            height: 28px;
+            .top-header__list {
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+                .sf-with-ul{
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        right: 5px;
+                        margin-top: -3px;
+                        height: 0;
+                        width: 0;
+                        border: 5px solid transparent;
+                        border-top-color: rgba(#333, .5);
+                    }
+                }
+                .menu-item {
+                    @include font-size(12px, 28px);
+                    position: relative;
+                    z-index: $level11;
+                    transition: all 300ms;
+                    &:hover {
+                        background: $darkgray;
+                    }
+                    a {
+                        color: $principal;
+                        padding: 0 20px 0 10px;
+                        display: block;
+                    }
+                    ul {
+                        display: none;
+                    }
+                    > ul {
+                        position: absolute;
+                        top: 28px;
+                        width: 160px;
+                        left: 0;
+                        background: $gray;
+                        z-index: $level10;
+                        .sf-with-ul{
+                            &::after {
+                                margin-top: -5px;
+                                margin-right: -3px;
+                                border-color: transparent;
+                                border-left-color: rgba(#333, .5);
+                            }
+                        }
+                        li {
+                            height: auto;
+                            position: relative;
+                            padding: 0 10px;
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                            a {
+                                line-height: cr(16px);
+                                padding: 5px 0;
+                            }
+                            ul {
+                                position: absolute;
+                                top: 0;
+                                left: 160px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu--top {
+        width: 100%;
+        height: 85px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        position: relative;
+        z-index: $level9;
+        background: white;
+        border-bottom: 2px solid $darkgray;
+        @include respond-to(desktop) {
+            height: 120px;
+            background-color: transparent;
+            border-bottom: 0;
+        }
+        .menu__logo {
+            width: 186px;
+            height: 60px;
+            margin: 12.5px 0;
+            display: block;
+            @include respond-to(desktop) {
+                width: 300px;
+                height: 96px;
+                margin: 12px 0;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .menu__icon {
+            width: 44px;
+            height: 44px;
+            margin: 20px 0;
+            position: absolute;
+            right: 15px;
+            top: 0px;
+            @include respond-to(desktop) {
+                display: none;
+            }
+        }
+    }
+    .menu--bottom {
+        display: none;
+        background: $main;
+        width: 100%;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        z-index: $level8;
+        @include respond-to(desktop) {
+            display: block;
+            height: auto;
+            background-color: white;
+            top: auto;
+            left: auto;
+            z-index: $level10;
+        }
+        .menu__search {
+            margin: 25px 0;
+            padding: 0 15px;
+            display: block;
+            @include less-than(desktop) {
+                position: absolute;
+                width: 100%;
+                bottom: 25px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                max-width: 330px;
+            }
+            @include respond-to(desktop) {
+                width: 590px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-end;
+                position: absolute;
+                top: -120px;
+                right: 0;
+                transform: translate(0,0);
+            }
+            @include respond-to(special) {
+                right: calc(50% + 20px);
+                transform: translate(100%, 0)
+            }
+            .search-form {
+                position: relative;
+                @include respond-to(desktop) {
+                    width: 280px;
+                    height: 36px;
+                    margin-top: 18px;
+                }
+                .input-group {
+                    width: 100%;
+                    height: 36px;
+                    background: white;
+                    border-radius: 6px;
+                    border: 1px solid $gray;
+                    overflow: hidden;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        border: none;
+                        border-radius: 0;
+                        padding: 10px 36px 10px 10px;
+                        @include font-size(16px, 34px);
+                        @extend .light;
+                    }
+                }
+                .search-group {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 36px;
+                    height: 36px;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        background-color: transparent;
+                        position: relative;
+                        z-index: 2;
+                        border: none;
+                    }
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                        position: absolute;
+                        left: 10px;
+                        top: 11px;
+                        fill: $main;
+                    }
+                }
+            }
+            .menu__newsletter {
+                display: none;
+                @include font-size(14px, 24px);
+                color: $border;
+                padding-left: 10px;
+                margin-left: 10px;
+                border-left: 1px solid $border;
+                height: 24px;
+                margin-top: 24px;
+                cursor: pointer;
+                @include respond-to(desktop) {
+                    display: block;
+                }
+                svg {
+                    fill: $main;
+                    width: 23px;
+                    height: 16px;
+                }
+            }
+            .logo-uc {
+                display: none;
+                margin-left: 25px;
+                @include respond-to(desktop) {
+                    display: block;
+                }
+            }
+        }
+        .menu__nav {
+            display: block;
+            padding: 30px 0 100px;
+            @include respond-to(desktop) {
+                height: 48px;
+                background: $main;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                padding: 0;
+            }
+            .menu__nav__item {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+                text-align: center;
+                @include respond-to(desktop) {
+                    margin: 0 25px;
+                    width: auto;
+                }
+                a {
+                    @include font-size(20px, 30px);
+                    color: white;
+                    @include respond-to(desktop) {
+                        @include font-size(14px, 48px);
+                        padding: 0 10px;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

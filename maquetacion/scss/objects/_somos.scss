@@ -1,0 +1,176 @@
+/*------------------------------------*\
+$SOMOS
+\*------------------------------------*/
+.no-touch {
+    .controls {
+        .js-tab-trigger {
+            transition: all 300ms;
+            &:hover {
+                color: $maindark;
+            }
+        }
+    }
+}
+.qsomos {
+    @include respond-to(tablet) {
+        width: 550px;
+        margin: auto;
+        .title {
+            span {
+                margin-left: 30px;
+            }
+        }
+    }
+    @include respond-to(desktop) {
+        width: 100%;
+        .title {
+            span {
+                margin-left: 0;
+            }
+        }
+    }
+}
+.somos {
+    .content {
+        @include respond-to(desktop) {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    }
+    .somos__media {
+        width: 100%;
+        margin-bottom: 15px;
+        @include respond-to(tablet) {
+            max-width: 500px;
+            margin: 0 auto 15px;
+            flex: 1;
+        }
+        @include respond-to(desktop) {
+            margin-top: 25px;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .somos__content {
+        @include respond-to(desktop) {
+            width: calc(100% - 500px);
+            padding-left: 40px;
+        }
+    }
+}
+.content-text {
+    @include respond-to(tablet) {
+        padding: 0 20px;
+    }
+    ul {
+        @extend .light;
+        margin-top: 15px;
+        li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            @include font-size(16px, 24px);
+            &::after {
+                content: ' ';
+                width: 4px;
+                height: 4px;
+                position: absolute;
+                top: 10px;
+                left: 4px;
+                background: $main;
+            }
+        }
+    }
+}
+.select-tab {
+    display: block;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        display: none;
+    }
+}
+.controls {
+    display: none;
+    @include respond-to(tablet) {
+        display: flex;
+    }
+    margin-bottom: 20px;
+    flex-flow: row wrap;
+    justify-content: flex-start; 
+    color: $principal;
+    cursor: pointer;
+    margin-right: 10px;
+    @include font-size(14px, 24px);
+    @extend .bold;
+    .js-tab-trigger {
+        margin-right: 10px;
+        &.active {
+            color: $maindark;
+        }
+    }
+}
+.container {
+    .tab-group {
+        display: none;
+        &:first-child {
+            display: block;
+        }
+        .container-tab {
+            @include respond-to(tablet) {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+            }
+        }
+    }
+    .flex-direction-nav {
+        display: none;
+    }
+    .item__team {
+        text-align: center;
+        margin-bottom: 25px;
+        @include respond-to(tablet) {
+            width: 50%;
+            margin-bottom: 50px;
+        }
+        @include respond-to(desktop) {
+            width: (100% / 3);
+        }
+        .item__team__media {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            @include respond-to(tablet) {
+                width: 140px;
+                height: 140px;
+                border-radius: 120px;
+            }
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+        .item__team__content {
+            @include respond-to(tablet) {
+                max-width: 260px;
+                margin: auto;
+            }
+            p {
+                @include font-size(14px, 20px);
+            }
+            strong {
+                @include font-size(14px, 24px);
+                display: block;
+                @include respond-to(tablet) {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}

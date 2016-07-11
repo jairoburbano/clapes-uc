@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    		$BTN
+\*------------------------------------*/
+.no-touch {
+    .btn--border {
+        transition: all 300ms;
+        &:hover {
+            background: $maindark;
+        }
+    }
+    .btn--big {
+        &:hover {
+            background: darken($secundario, 10);
+        }
+    }
+}
+.btn--border {
+    border-radius: 6px;
+    height: 36px;
+    text-align: center;
+    color: white;
+    background: $main;
+    @include font-size(14px, 36px);
+    height: 36px;
+    width: 120px;
+    display: block;
+    padding: 0;
+    @extend .light;
+}
+.btn--big {
+    @include font-size(16px, 52px);
+    height: 52px;
+    width: 180px;
+    margin: auto;
+    background: $secundario;
+}
